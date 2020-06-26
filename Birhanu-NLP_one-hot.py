@@ -11,8 +11,8 @@ from sklearn.metrics import accuracy_score
 #==============================================================================
 # read a text document from disk to worksapce, preprocess( like lower case, remove white space, padding, ..etc)
 def read_dataset():
-    text = open('/home/nbm/PycharmProjects/NLP_darm/text_doc.txt', 'r').read()
-    lable = open('/home/nbm/PycharmProjects/NLP_darm/lable.txt', 'r').read()
+    text = open('.../text_doc.txt', 'r').read()
+    lable = open('.../lable.txt', 'r').read()
     text=text.lower()
     lines = text.split('\n')
     # find and list-out unique characters in the texts
