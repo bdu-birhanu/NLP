@@ -7,6 +7,9 @@ Language Identification(LI) model  using  two methods
   text-languages are given in the text_doc.txt file and the corresponding labels are given in lable.txt file
 
 ```
+# Pre-process data
+python preprocess.py
+
 # Train
 python train.py
 
