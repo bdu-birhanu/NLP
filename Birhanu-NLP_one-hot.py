@@ -11,6 +11,9 @@ from sklearn.metrics import accuracy_score
 #==============================================================================
 # read a text document from disk to worksapce, preprocess( like lower case, remove white space, padding, ..etc)
 def read_dataset():
+    '''
+    description 
+    '''
     text = open('.../text_doc.txt', 'r').read()
     lable = open('.../lable.txt', 'r').read()
     text=text.lower()
@@ -43,6 +46,9 @@ def read_dataset():
 
 # function for one-hot-encoding
 def one_hot_encode(sequencex, n_unique):
+    '''
+    describe
+    '''
     encoding = list()
     for value in sequencex:
         vector = [0 for _ in range(n_unique)]
@@ -84,7 +90,7 @@ batch_size=5
 
 
 #main model( input--> input data, output--model)
-def main_model(input_data):
+def main_model(input_data, num_classes, rnn_size, act):
     lstm_1 = Bidirectional(LSTM(128, return_sequences=True, dropout=0.25))(input_data)
     lstm_2 = Bidirectional(LSTM(128, return_sequences=True, dropout=0.25))(lstm_1)
     context=attention(lstm_2)
@@ -95,16 +101,16 @@ def main_model(input_data):
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
     return model
 
-# train the model=============================
-input_data = Input(name='input', shape=(maxlen,len(unique_chars)))
-model=main_model(input_data)
-model.summary()
+if __name__=='__main__':
+    input_data = Input(name='input', shape=(maxlen,len(unique_chars)))
+    model=main_model(input_data)
+    model.summary()
 
-early_stopping = EarlyStopping(monitor='val_loss', patience=5)
-hist = model.fit(x_train,y_train, batch_size=batch_size,
-                 epochs=20, verbose=1, validation_split=0.2,shuffle=True, callbacks=[early_stopping])
+    early_stopping = EarlyStopping(monitor='val_loss', patience=5)
+    hist = model.fit(x_train,y_train, batch_size=batch_size,
+                     epochs=20, verbose=1, validation_split=0.2,shuffle=True, callbacks=[early_stopping])
 
-#testing the model
-y_pred=model.predict(x_test)
-predicted = np.argmax(y_pred, axis=1)
-score=accuracy_score(np.argmax(y_test, axis=1), predicted)
+    #testing the model
+    y_pred=model.predict(x_test)
+    predicted = np.argmax(y_pred, axis=1)
+    score=accuracy_score(np.argmax(y_test, axis=1), predicted)
