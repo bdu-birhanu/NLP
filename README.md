@@ -1,18 +1,19 @@
 # NLP
 ## Language Identification(LI)
-- This method uses two stacked LSTM networks followed by an Attention layers.
-- To train and test our model, we use a small dataset consists of 600 sample texts collected from 3 Ethiopian languages (Amharic, Tigrigna, and Afan-Oromo). The first two languages use the same writing system called  Abugida , while the second (Afan-Oromo) language uses Latin alphabets.
-- Text-documents are given in the [ text_doc.txt] file and the corresponding labels are given in [lable.txt] file. In addtion, sample training progress, model summay and results are given in[.png] file.
+- This method uses two stacked LSTM networks followed by an Attention layer.
+- To train and test our model, we use a small dataset consists of 600 sample texts collected from 3 Ethiopian languages (Amharic, Tigrigna, and Afan-Oromo). The first two languages use the same writing system called  Abugida, while the second (Afan-Oromo) language uses Latin alphabets.
+- Text-documents are given in the [text_doc.txt] file and the corresponding labels are given in [lable.txt] file. In addition, sample training progress, model summary, and results are given in[.png] file.
+- Once the text-document is loaded, then each text-line in the document is changed to one-hot character encoded.
 
 ## To run the code with Terminal use the following info.
 ```
-# Pre-process data
+#Load and Pre-process data
 python preprocess.py
 
 # Train
 python train.py
 
-# Test
+# Test and results
 python test.py
 ```
 ## Some issues to know
