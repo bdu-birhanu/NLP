@@ -1,9 +1,10 @@
 # NLP
-Language Identification(LI) model  using using one-hot character encoding 
-  In one-hot character encoding, we use two LSTM networks embedded with the Attention mechanism, whereas the word embedding techniques use two stacked LSTM networks on the top of the embedding layer.
- We use a small dataset consists of 3 Ethiopian languages (Amharic, Tigrigna, and Afan Oromo). The first two languages use the Abugida writing system while the second (Afan Oromo) language uses Latin alphabets.
-  text-languages are given in the text_doc.txt file and the corresponding labels are given in lable.txt file
+## Language Identification(LI)
+- This method uses two stacked LSTM networks followed by an Attention layers.
+- To train and test our model, we use a small dataset consists of 600 sample texts collected from 3 Ethiopian languages (Amharic, Tigrigna, and Afan-Oromo). The first two languages use the same writing system called  Abugida , while the second (Afan-Oromo) language uses Latin alphabets.
+- Text-documents are given in the [ text_doc.txt] file and the corresponding labels are given in [lable.txt] file. In addtion, sample training progress, model summay and results are given in[.png] file.
 
+## To run the code with Terminal use the following info.
 ```
 # Pre-process data
 python preprocess.py
