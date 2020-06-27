@@ -14,6 +14,10 @@ python train.py
 # Test
 python test.py
 ```
-
+## Some issues to know
+1. The test environment is
+    - Python 3.5.2
+    - Keras 2.3.1
+    - tensorflow 2.1.0
 
 
